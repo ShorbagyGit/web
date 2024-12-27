@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Shop</title>
+    <style>
+
+        body {
+            font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+      .toolbar {
+              width: 100%;
+            height: 40px;
+            background-color: #2c2727;
+            display: flex;
+            justify-content: space-evenly; /* Space out the items evenly */
+            align-items: center;
+            position: fixed;
+            top: 0;
+            padding: 15px;
+            z-index: 1000;
+        }
+        h1, h2, h3 {
+            color: #333;
+            font-weight: 300;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            color:#81B622;
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+        h3 {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        /* Main Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-items: center;
+        }
+
+        /* Product Card */
+        .product-card {
+            background-color: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            border-radius: 12px;
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card img:hover {
+            transform: scale(1.08);
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #81B622;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+            transform: translateY(-2px);
+        }
+
+        /* Links */
+        a {
+            color: #0071e3;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+<br><br><br>
+    <h1 ><b><b>Mini Shop</b></b></h1>
+    <h2><b>Our Products</b></h2>
+
+    <div class="product-grid">
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>NIKE Running Shoes</h3>
+
+                <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/26e06a28-c94d-4483-adc3-4700e4aecd86/NIKE+AIR+ZOOM+STRUCTURE+25.png"
+               alt="Running Shoes">
+                <p>Price: $30.00</p>
+                <input type="hidden" name="productId" value="1">
+                <input type="hidden" name="productName" value="NIKE Running Shoes">
+                <input type="hidden" name="price" value="30">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>NIKE Sneakers</h3>
+                <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/0f76f73e-2578-4d62-abab-c5563ea4f78c/NIKE+DUNK+LOW+RETRO.png" alt="Casual Sneakers">
+                <p>Price: $25.00</p>
+                <input type="hidden" name="productId" value="2">
+                <input type="hidden" name="productName" value="NIKE Sneakers">
+                <input type="hidden" name="price" value="25">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>Under-Armour Men Hoodie</h3>
+                <img src="https://assets.ajio.com/medias/sys_master/root/20240816/1WCr/66bf48361d763220fa7ff128/-473Wx593H-469674187-blue-MODEL.jpg" alt="Men Hoodie">
+                <p>Price: $30.00</p>
+                <input type="hidden" name="productId" value="3">
+                <input type="hidden" name="productName" value="Under-Armour Men Hoodie">
+                <input type="hidden" name="price" value="30">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>adidas Men Jacket</h3>
+                <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/d3316cd375f94ef98e9e0a147382a983_9366/Tiro_24_Winter_Jacket_Black_IJ7388_21_model.jpg" alt="Men Jacket">
+                <p>Price: $70.00</p>
+                <input type="hidden" name="productId" value="4">
+                <input type="hidden" name="productName" value="adidas Men Jacket">
+                <input type="hidden" name="price" value="70">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>adidas Men Sweatpants</h3>
+                <img src="https://thumblr.uniid.it/product/359560/a6c82414dd28.jpg?width=3840&format=webp&q=75" alt="Men Sweatpants">
+                <p>Price: $40.00</p>
+                <input type="hidden" name="productId" value="5">
+                <input type="hidden" name="productName" value="adidas Men Sweatpants">
+                <input type="hidden" name="price" value="40">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>adidas Men Jacket</h3>
+                <img src="https://assets.adidas.com/images/w_940,f_auto,q_auto/b84e5531db0d429f958a74df4c8bc88a_9366/HY1422_HM1.jpg" alt="Men Jacket">
+                <p>Price: $50.00</p>
+                <input type="hidden" name="productId" value="6">
+                <input type="hidden" name="productName" value="adidas Men Jacket">
+                <input type="hidden" name="price" value="50">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>adidas Backpack</h3>
+                <img src="https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/761134s.jpg?im=Resize,width=750" alt="Backpack">
+                <p>Price: $15.00</p>
+                <input type="hidden" name="productId" value="7">
+                <input type="hidden" name="productName" value="adidas Backpack">
+                <input type="hidden" name="price" value="15">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>NIKE CARRY-ON BAG</h3>
+                <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/4730e81984444ca9ab8893f2bee1547a_9366/4ATHLTS_Training_Duffel_Bag_Medium_Green_IL5754.jpg" alt="Carry-on Bag">
+                <p>Price: $25.00</p>
+                <input type="hidden" name="productId" value="8">
+                <input type="hidden" name="productName" value="NIKE Carry-On Bag">
+                <input type="hidden" name="price" value="25">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>Timberland hoodie</h3>
+                <img src="https://chicagocitysports.com/cdn/shop/products/Men_s-Timberland-Tree-Logo-Hoodie-Bright-Blue_TB0A2BJHCZ9_01.jpg?v=1668024906" alt="Timberland hoodie">
+                <p>Price: $35.00</p>
+                <input type="hidden" name="productId" value="9">
+                <input type="hidden" name="productName" value="Timberland hoodie">
+                <input type="hidden" name="price" value="35">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>adidas short </h3>
+                <img src="https://orlandosports.ae/cdn/shop/products/ADIDAS-SHORTS-FOR-MEN-AY7702_1_2048x.jpg?v=1613808891" alt="Timberland hoodie">
+                <p>Price: $17.00</p>
+                <input type="hidden" name="productId" value="10">
+                <input type="hidden" name="productName" value="adidas short">
+                <input type="hidden" name="price" value="17">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+
+
+        <form action="CartServlet" method="POST">
+            <div class="product-card">
+                <h3>under armour CARRY-ON BAG </h3>
+                <img src="https://underarmour.scene7.com/is/image/Underarmour/1369225-001_SLF_SL?rp=standard-0pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=F0F0F0&wid=566&hei=708&size=566%2C708" alt="Timberland hoodie">
+                <p>Price: $20.00</p>
+                <input type="hidden" name="productId" value="11">
+                <input type="hidden" name="productName" value="under armour CARRY-ON BAG">
+                <input type="hidden" name="price" value="20">
+                <button type="submit">Add to Cart</button>
+            </div>
+        </form>
+        <form action="CartServlet" method="POST">
+        <div class="product-card">
+            <h3>adidas slide </h3>
+            <img src="https://m.media-amazon.com/images/I/418Klt8oLnL._AC_SY300_.jpg" alt="Timberland hoodie">
+            <p>Price: $10.00</p>
+            <input type="hidden" name="productId" value="12">
+            <input type="hidden" name="productName" value="adidas slide">
+            <input type="hidden" name="price" value="10">
+            <button type="submit">Add to Cart</button>
+        </div>
+        </form>
+
+
+    <div class="toolbar"  >
+        <a href="ViewCartServlet"><h2 style="color: DodgerBlue;"><b>View Cart</b></h2></a>
+        <a href="index.html"><h2 style="color: DodgerBlue;"><b>HOME</b></h2></a>
+        <a href="contact.html"><h2 style="color:DodgerBlue;"><b> CONTACT US</b></h2> </a>
+        <a href="return.html"><h2 style="color:DodgerBlue;"><b> RETURN-POLICY</b></h2> </a>
+
+    </div>
+    </div>
+    <br><br><br><br>
+</div>
+</body>
+</html>

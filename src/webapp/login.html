@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        body {
+            background-image: url('https://wallpapercave.com/wp/wp11949887.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container for the form */
+        .form-container {
+            background-color: rgba(0, 0, 0.5, 0.7);
+            padding: 46px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Heading */
+        h1 {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+
+        /* Form styles */
+        input {
+            padding: 12px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        label {
+            font-size: 18px;
+            color: #fff;
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1><b>Login</b></h1>
+
+    <form action="loginservlet" method="POST">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" required placeholder="Enter your first name">
+
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" required placeholder="Enter your last name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email" >
+
+        <label for="Password">Password</label>
+        <input type="password" id="Password" name="Password" required placeholder="Enter your password" >
+
+        <input type="submit" value="Login" align="Center">
+    </form>
+</div>
+
+</body>
+</html>

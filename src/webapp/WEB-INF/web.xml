@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee     http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+    <session-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+    <servlet>
+        <servlet-name>SelectLiquorServlet</servlet-name>
+        <servlet-class>com.sample.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectLiquorServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>com.sample.MainServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/servlttt</url-pattern>
+    </servlet-mapping>
+</web-app>
